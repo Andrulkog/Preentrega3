@@ -1,6 +1,31 @@
-<form action="/AppCoder/buscar/" method="GET">
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+ <h3><FONT COLOR="blue">Buscar productos</FONT>
+    <form action="{% url 'busquedaProducto' %}" method="get">
+        <label for="codigo"><b> Codigo:</b></label>
+        <input type="text" id="codigo" name="codigo" value="{{ request.GET.codigo }}">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if resultados %}
+    <h3><FONT COLOR="blue">Resultados</FONT></h3>
+    <ul>
+        {% for Producto in resultados %}
+        <li><b>Nombre: </b>{{ Producto.nombre }} <b>| Codigo: </b> {{ Producto.codigo }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
+
+
+
+<!--<form action="/AppCoder/buscar/" method="GET">
     
     <input type="number" name="codigo" id="codigo">
     <input type="submit" value="Buscar">
     
 </form>
+-->

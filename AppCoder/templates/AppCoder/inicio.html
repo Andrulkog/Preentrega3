@@ -6,14 +6,19 @@
 
     <!--Aquí va lo que cambia, y lo asociado a esta vista :)-->
     <h1>Bienvenidos</h1>
-    <p>Ingrese el codigo del Producto<p>
-
-    <form action="/AppCoder/buscar/" method="GET">
+    <h3><FONT COLOR="blue">Buscar productos</FONT>
+        <form action="{% url 'busquedaProducto' %}" method="get">
+            <label for="codigo"><b> Codigo:</b></label>
+            <input type="text" id="codigo" name="codigo" value="{{ request.GET.codigo }}">
+            <button type="submit">Buscar</button>
+        </form>
+        {% if resultados %}
+        <h3><FONT COLOR="blue">Resultados</FONT></h3>
+        <ul>
+            {% for Producto in resultados %}
+            <li><b>Nombre: </b>{{ producto.nombre }} <b>| Codigo: </b> {{ producto.codigo }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endblock %}
     
-        <input type="number" name="codigo" id="codigo">
-        <input type="submit" value="Buscar">
-        
-    </form>
-    
-    
-{% endblock %}

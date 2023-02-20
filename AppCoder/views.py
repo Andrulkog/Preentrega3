@@ -64,7 +64,18 @@ def productos(request):
         
     return render(request, "AppCoder/productos.html", {"miFormulario":miFormulario})        
 
+def buscarproducto(request):
+    query = request.GET.get('codigo')
+    if query is not None:
+        resultados = Producto.objects.filter(codigo__icontains=query)
+    else:
+        resultados = []
+    return render(request, 'AppCoder/busquedaProducto.html', {'resultados': resultados})
 
+
+
+
+"""
 def busquedaProducto(request):
     return render(request, "AppCoder/busquedaProducto.html")
 
@@ -78,4 +89,4 @@ def buscar(request):
         respuesta = "No se ingresaron datos" 
 
         
-    return HttpResponse(respuesta)
+    return HttpResponse(respuesta) """
