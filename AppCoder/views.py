@@ -74,17 +74,17 @@ def productos(request):
     return render(request, "AppCoder/cursoFormulario.html", {"miFormulario":miFormulario})        
 
 
-def busquedaCamada(request):
-    return render(request, "AppCoder/busquedaCamada.html")
+def busquedaProducto(request):
+    return render(request, "AppCoder/busquedaProducto.html")
 
 def buscar(request):
-    if request.GET["camada"]:
-        camada = request.GET['camada']
-        cursos = Producto.objects.filter(camada__icontains=camada)
-        return render(request, "AppCoder/resultadoBusqueda.html", {"cursos":cursos, "camada":camada})
-        #return render(request, "AppCoder/inicio.html", {"cursos":cursos, "camada":camada})
+    if request.GET["codigo"]:
+        codigo = request.GET['codigo']
+        producto = Producto.objects.filter(codigo__icontains=codigo)
+        return render(request, "AppCoder/resultadoBusqueda.html", {"producto":producto, "codigo":codigo})
+        
     else:
-        respuesta = "No enviaste datos" 
+        respuesta = "No se ingresaron datos" 
 
         
     return HttpResponse(respuesta)

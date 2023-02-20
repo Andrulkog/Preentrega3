@@ -1,11 +1,11 @@
-<p>Estamos buscando el: {{camada}}</p>
+<p>Estamos buscando el codigo: {{producto}}</p>
 
-{% if cursos %}
+{% if Productos %}
 
 <ul>
-{% for curso in cursos %}
-    <li> {{curso.nombre}}</li>
-    <li> {{curso.camada}}</li>
+{% for codigo in Productos %}
+    <li> {{producto.nombre}}</li>
+    <li> {{producto.codigo}}</li>
 {% endfor %}
 
 

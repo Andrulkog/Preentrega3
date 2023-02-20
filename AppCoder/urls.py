@@ -11,7 +11,7 @@ urlpatterns = [
     path('compradores', views.compradores, name="Compradores"),
     path('medicamentos', views.medicamentos, name="Medicamentos"),
     path('productoFormulario', views.productos, name="productoFormulario"),
-    path('busquedaCamada', views.busquedaCamada, name="BusquedaCamada"),
+    path('busquedaCamada', views.busquedaProducto, name="busquedaProducto"),
     path('buscar/', views.buscar),
    # path('leerProfesores', views.leerProfesores, name="LeerProfesores"),
    # path('eliminarProfesor/<profesor_nombre>/', views.eliminarProfesor, name="EliminarProfesor"),
