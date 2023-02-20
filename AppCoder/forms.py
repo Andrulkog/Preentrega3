@@ -1,12 +1,12 @@
 from django import forms
 
 
-class CursoFormulario(forms.Form):
+class ProductoFormulario(forms.Form):
     #Especificar los campos
     curso = forms.CharField()
     camada = forms.IntegerField()
     
-class ProfesorFormulario(forms.Form):
+class EmpleadoFormulario(forms.Form):
     nombre=forms.CharField(max_length=30)
     apellido=forms.CharField(max_length=30)
     email = forms.EmailField()
