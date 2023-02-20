@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppCoder.models import *
-from AppCoder.forms import ProductoFormulario, EmpleadoFormulario, PruebaFormulario
+from AppCoder.forms import ProductoFormulario, EmpleadoFormulario, MedicamentosFormulario
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -18,8 +18,8 @@ def empleados(request):
         
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            empleado = Empleado(nombre=informacion['nombre'], camada=informacion['apellido'], 
-                                email=informacion['email'], profesion=informacion['profesion'])
+            empleado = Empleado(nombre=informacion['nombre'], apellido=informacion['apellido'], 
+                                email=informacion['email'],)
             empleado.save()
             return render(request, "AppCoder/inicio.html")
         
@@ -27,6 +27,23 @@ def empleados(request):
         miFormulario = EmpleadoFormulario()
         
     return render(request, "AppCoder/profesores.html", {"miFormulario":miFormulario})        
+
+def medicamentos(request):
+    if request.method == 'POST':
+        miFormulario = MedicamentosFormulario(request.POST)
+        print(miFormulario)
+        
+        if miFormulario.is_valid:
+            informacion = miFormulario.cleaned_data
+            medicamento = Medicamento(nombre=informacion['nombre'], fechaDeVencimiento=informacion['fechaDeVencimiento'], 
+                                entregado=informacion['entregado'],)
+            medicamento.save()
+            return render(request, "AppCoder/inicio.html")  
+        
+    else:
+        miFormulario = MedicamentosFormulario()
+        
+    return render(request, "AppCoder/entregables.html", {"miFormulario":miFormulario}) 
 
 
 def compradores(request):
@@ -36,9 +53,9 @@ def compradores(request):
 def prueba(request):
     return render(request, 'AppCoder/prueba.html')
 
-def medicamentos(request):
+"""def medicamentos(request):
     return render(request, 'AppCoder/entregables.html')
-    #return HttpResponse('vista entregables') 
+    #return HttpResponse('vista entregables') """
 
 def productos(request):
     if request.method == 'POST':
@@ -47,7 +64,7 @@ def productos(request):
         
         if miFormulario.is_valid:
             informacion = miFormulario.cleaned_data
-            producto = Producto(nombre=informacion['curso'], camada=informacion['camada'])
+            producto = Producto(nombre=informacion['nombre'], codigo=informacion['codigo'])
             producto.save()
             return render(request, "AppCoder/inicio.html")
         

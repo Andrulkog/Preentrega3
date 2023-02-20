@@ -1,14 +1,36 @@
-<!--{% extends "AppCoder/padre.html" %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar Medicamento</title>
+</head>
+<body>
+{% extends "AppCoder/padre.html" %}
 {% load static %}
-
 {% block contenidoQueCambia %}
+        <!-- Aqui va lo que cambia y lo asociado a esta vista -->
+    {% if miFormulario.errors %}
 
+    <p style="color: red;"> Estan mal los datos, revisar</p>
 
-    
-    <h1>Entregables</h1>
-    <p>Acá va la info de los cursos</p>
+    {% endif %}
 
+    <form action="/AppCoder/" method="POST">{% csrf_token %}
+
+        <!-- Aca esta la magia de Django -->
+
+        <table>
+
+            {{miFormulario.as_table}}
+
+        </table>
+
+        <input type="submit" value="Enviar">
+
+    </form>
 
 {% endblock %}
--->
+</body>
+</html>

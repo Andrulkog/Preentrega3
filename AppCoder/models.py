@@ -12,6 +12,10 @@ class Comprador(models.Model):
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30)
     email = models.EmailField()
+
+    def __str__(self):
+        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - email: {self.email} "
+
     
 class Empleado(models.Model):
     nombre=models.CharField(max_length=30)
@@ -25,3 +29,8 @@ class Medicamento(models.Model):
     nombre=models.CharField(max_length=40)
     fechaDeVencimiento = models.DateField()
     entregado = models.BooleanField()
+
+    def __str__(self):
+        return f"Nombre: {self.nombre} - Fecha de Vencimiento: {self.fechaDeVencimiento} - entregado: {self.entregado}"
+    
+
