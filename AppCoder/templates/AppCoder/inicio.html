@@ -4,16 +4,15 @@
 
 {% block contenidoQueCambia %}
 
-    <!--Aquí va lo que cambia, y lo asociado a esta vista :)-->
     <h1>Bienvenidos</h1>
-    <h3><FONT COLOR="blue">Buscar productos</FONT>
+    <p><FONT COLOR="Black">Buscar productos</FONT>
         <form action="{% url 'busquedaProducto' %}" method="get">
-            <label for="codigo"><b> Codigo:</b></label>
+            <label for="codigo"><b> Ingrese el Codigo del producto:</b></label>
             <input type="text" id="codigo" name="codigo" value="{{ request.GET.codigo }}">
             <button type="submit">Buscar</button>
         </form>
         {% if resultados %}
-        <h3><FONT COLOR="blue">Resultados</FONT></h3>
+        <p><FONT COLOR="grey">Resultados</FONT><p>
         <ul>
             {% for Producto in resultados %}
             <li><b>Nombre: </b>{{ producto.nombre }} <b>| Codigo: </b> {{ producto.codigo }}</li>

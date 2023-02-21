@@ -4,14 +4,14 @@
 
 {% block contenidoQueCambia %}
 
- <h3><FONT COLOR="blue">Buscar productos</FONT>
+ <p><FONT COLOR="Black">Buscar productos</FONT>
     <form action="{% url 'busquedaProducto' %}" method="get">
         <label for="codigo"><b> Codigo:</b></label>
         <input type="text" id="codigo" name="codigo" value="{{ request.GET.codigo }}">
         <button type="submit">Buscar</button>
     </form>
     {% if resultados %}
-    <h3><FONT COLOR="blue">Resultados</FONT></h3>
+    <p><FONT COLOR="black">Resultados</FONT><p>
     <ul>
         {% for Producto in resultados %}
         <li><b>Nombre: </b>{{ Producto.nombre }} <b>| Codigo: </b> {{ Producto.codigo }}</li>
@@ -22,10 +22,4 @@
 
 
 
-<!--<form action="/AppCoder/buscar/" method="GET">
-    
-    <input type="number" name="codigo" id="codigo">
-    <input type="submit" value="Buscar">
-    
-</form>
--->
+

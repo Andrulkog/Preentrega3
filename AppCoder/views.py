@@ -71,22 +71,3 @@ def buscarproducto(request):
     else:
         resultados = []
     return render(request, 'AppCoder/busquedaProducto.html', {'resultados': resultados})
-
-
-
-
-"""
-def busquedaProducto(request):
-    return render(request, "AppCoder/busquedaProducto.html")
-
-def buscar(request):
-    if request.GET["codigo"]:
-        codigo = request.GET['codigo']
-        producto = Producto.objects.filter(codigo__icontains=codigo)
-        return render(request, "AppCoder/resultadoBusqueda.html", {"producto":producto, "codigo":codigo})
-        
-    else:
-        respuesta = "No se ingresaron datos" 
-
-        
-    return HttpResponse(respuesta) """

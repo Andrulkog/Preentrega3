@@ -10,6 +10,5 @@ urlpatterns = [
     path('medicamentos', views.medicamentos, name="Medicamentos"),
     path('productoFormulario', views.productos, name="productoFormulario"),
     path('busquedaProducto', views.buscarproducto, name="busquedaProducto"),
-    #path('buscar/', views.buscar),
-   
+       
 ]
